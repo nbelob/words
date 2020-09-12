@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
 public class WordsController {
@@ -20,6 +21,12 @@ public class WordsController {
         PartForm partForm = new PartForm();
         model.addAttribute(partForm);
         return "main";
+    }
+
+    @RequestMapping(value = "/list", method = POST)
+    public String showList(Model model, PartForm partForm) {
+        System.out.println(partForm.getPart());
+        return "wordList";
     }
 }
 
