@@ -1,23 +1,31 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 1
-  Date: 10.09.2020
-  Time: 18:46
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
+<%@ page session="false" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
     <title>Words</title>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/css/style.css" />">
 </head>
 <body>
-    <form method="post">
-        <p>
-            <input type="radio" name="part" value="1" checked>Существительные<br>
-            <input type="radio" name="part" value="2">Глаголы<br>
-            <input type="radio" name="part" value="3">Прилагательные
-        </p>
-        <p><input type="submit" value="Выбрать"></p>
-    </form>
+    <sf:form method="post" modelAttribute="partForm">
+        <table align="center">
+            <tr>
+                <td>
+                    <fieldset>
+                        <p>
+                            <input type="radio" name="part" value="1" checked>Существительные<br>
+                            <input type="radio" name="part" value="2">Глаголы<br>
+                            <input type="radio" name="part" value="3">Прилагательные
+                        </p>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><input type="submit" value="Выбрать"></p>
+                </td>
+            </tr>
+        </table>
+    </sf:form>
 </body>
 </html>
