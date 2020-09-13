@@ -7,6 +7,6 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/style.css" />">
 </head>
 <body>
-
+    <p>${part}</p>
 </body>
 </html>

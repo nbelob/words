@@ -25,9 +25,16 @@ public class WordsController {
     }
 
     @RequestMapping(value = "/list", method = GET)
-    public String showList(@RequestParam(name = "part") String part, Model model/*, PartForm partForm*/) {
+    public String showList(@RequestParam(name = "part") int part, Model model/*, PartForm partForm*/) {
         //System.out.println(partForm.getPart());
-        System.out.println(part);
+        String partS = "";
+        if (part == 1)
+            partS = "Существительные";
+        else if (part == 2)
+            partS = "Глаголы";
+        else partS = "Прилагательные";
+        System.out.println(partS);
+        model.addAttribute("part", partS);
         return "wordList";
     }
 }
