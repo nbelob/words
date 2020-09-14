@@ -38,7 +38,7 @@
         <tr>
             <td>
                 <sf:form method="POST">
-                    <input type="hidden" name="id" value="${partS}">
+                    <input type="hidden" name="part" value="${part}">
                     <input type="submit" name="add" value="Добавить">
                 </sf:form>
             </td>

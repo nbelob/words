@@ -40,6 +40,17 @@ public class WordsController {
         model.addAttribute(words);
         return "wordList";
     }
+
+    @RequestMapping(value = "/list", method = POST, params = "add")
+    public String addWord(@RequestParam(name = "part") int part) {
+        System.out.println(part);
+        return "redirect:/add";
+    }
+
+    @RequestMapping(value = "/add", method = GET)
+    public String addForm() {
+        return "addWord";
+    }
 }
 
 
