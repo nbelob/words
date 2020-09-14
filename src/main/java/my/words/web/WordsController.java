@@ -1,10 +1,13 @@
 package my.words.web;
 
 import my.words.dao.Dao;
+import my.words.domain.WordObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -30,7 +33,10 @@ public class WordsController {
         else if (part == 2)
             partS = "Глаголы";
         else partS = "Прилагательные";
+        List<WordObject> words;
+        words = dao.findWords(part);
         model.addAttribute("part", partS);
+        model.addAttribute(words);
         return "wordList";
     }
 }

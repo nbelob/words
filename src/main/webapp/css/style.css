@@ -8,3 +8,17 @@ fieldset {
     font-size: 0.8em;
     border-radius: 8px;
 }
+table {
+    border-collapse: collapse;
+}
+td.set {
+    border: 1px solid black;
+    font-family: serif;
+    font-size: 1em;
+}
+td.head {
+    background-color: #AFEEEE;
+    border: 1px solid black;
+    text-align: center;
+    font-weight: bold;
+}

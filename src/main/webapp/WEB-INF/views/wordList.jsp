@@ -7,6 +7,28 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/style.css" />">
 </head>
 <body>
-    <p>${part}</p>
+    <p align="center">${part}</p>
+    <table align="center">
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="head">Слово</td>
+                        <td class="head">Перевод</td>
+                    </tr>
+                    <c:forEach items="${wordObjectList}" var="wordObject">
+                        <tr>
+                            <td class="set">
+                                    ${wordObject.word}
+                            </td>
+                            <td class="set">
+                                    ${wordObject.trans}
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
