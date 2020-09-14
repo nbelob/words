@@ -41,16 +41,21 @@ public class WordsController {
         return "wordList";
     }
 
-    @RequestMapping(value = "/list", method = POST, params = "add")
+    @RequestMapping(value = "/add", method = POST)
     public String addWord(@RequestParam(name = "part") int part) {
         System.out.println(part);
-        return "redirect:/add";
-    }
-
-    @RequestMapping(value = "/add", method = GET)
-    public String addForm() {
         return "addWord";
     }
+
+    @RequestMapping(value = "/edit", method = POST)
+    public String editWord(@RequestParam(name = "id") int id) {
+        System.out.println(id);
+        return "editWord";
+    }
+
+    @RequestMapping(value = "/del", method = POST)
+    public String delWord(@RequestParam(name = "id") int id) {
+        System.out.println(id);
+        return "delWord";
+    }
 }
-
-
