@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/style.css" />">
 </head>
 <body>
-    <sf:form method="get" modelAttribute="partForm" action="/list">
+    <sf:form method="get" action="/list">
         <table align="center">
             <tr>
                 <td>
