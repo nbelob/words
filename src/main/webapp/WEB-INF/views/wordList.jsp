@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/style.css" />">
 </head>
 <body>
-    <p align="center">${part}</p>
+    <p align="center">${partS}</p>
     <table align="center">
         <tr>
             <td>
@@ -27,6 +27,31 @@
                         </tr>
                     </c:forEach>
                 </table>
+            </td>
+        </tr>
+        <tr>
+            <td> </td>
+        </tr>
+        <tr>
+            <td> </td>
+        </tr>
+        <tr>
+            <td>
+                <sf:form method="POST">
+                    <input type="hidden" name="id" value="${partS}">
+                    <input type="submit" name="add" value="Добавить">
+                </sf:form>
+            </td>
+        </tr>
+        <tr>
+            <td> </td>
+        </tr>
+        <tr>
+            <td> </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="<c:url value="/" />">Назад</a>
             </td>
         </tr>
     </table>

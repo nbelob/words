@@ -35,7 +35,8 @@ public class WordsController {
         else partS = "Прилагательные";
         List<WordObject> words;
         words = dao.findWords(part);
-        model.addAttribute("part", partS);
+        model.addAttribute("part", part);
+        model.addAttribute("partS", partS);
         model.addAttribute(words);
         return "wordList";
     }
