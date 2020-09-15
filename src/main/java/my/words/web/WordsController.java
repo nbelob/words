@@ -41,12 +41,17 @@ public class WordsController {
         return "wordList";
     }
 
-    @RequestMapping(value = "/add", method = POST)
+    @RequestMapping(value = "/add", method = POST, params = "add")
     public String addWord(@RequestParam(name = "part") int part, Model model) {
         System.out.println(part);
         EditForm editForm = new EditForm(part, "", "");
         model.addAttribute(editForm);
         return "editWord";
+    }
+
+    @RequestMapping(value = "/add", method = POST, params = "ok")
+    public String additionWord() {
+        return "proba";
     }
 
     @RequestMapping(value = "/edit", method = POST)
