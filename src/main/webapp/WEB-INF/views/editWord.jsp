@@ -10,6 +10,11 @@
     <sf:form method="POST" modelAttribute="editForm">
         <table align="center">
             <tr>
+                <td>
+                    <a href="<c:url value="/list?part=${editForm.typeWord}" />">Назад</a>
+                </td>
+            </tr>
+            <tr>
                 <td>Слово</td>
                 <td>
                     <input type="text" name="word" value=${editForm.word}>
