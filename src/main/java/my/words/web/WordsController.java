@@ -43,15 +43,21 @@ public class WordsController {
 
     @RequestMapping(value = "/add", method = POST, params = "add")
     public String addWord(@RequestParam(name = "part") int part, Model model) {
-        System.out.println(part);
         EditForm editForm = new EditForm(part, "", "");
         model.addAttribute(editForm);
         return "editWord";
     }
 
     @RequestMapping(value = "/add", method = POST, params = "ok")
-    public String additionWord() {
-        return "proba";
+    public String additionWord(Model model, EditForm editForm) {
+        if (editForm.getWord().isBlank() || editForm.getWord().isEmpty() ||
+                editForm.getTrans().isBlank() || editForm.getTrans().isEmpty()) {
+            model.addAttribute(editForm);
+            return "editWord";
+        } else {
+            dao.addWord(editForm.getTypeWord(), editForm.getWord(), editForm.getTrans());
+            return "redirect:/list/?part=" + String.valueOf(editForm.getTypeWord());
+        }
     }
 
     @RequestMapping(value = "/edit", method = POST)

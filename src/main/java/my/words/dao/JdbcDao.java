@@ -23,5 +23,10 @@ public class JdbcDao implements Dao {
                 new WordRowMapper(),
                 part);
     }
+
+    @Override
+    public void addWord(int typeWord, String word, String trans) {
+        jdbcTemplate.update("insert into words (typeWord, word, trans) values (?, ?, ?)", typeWord, word, trans);
+    }
 }
 
