@@ -19,7 +19,7 @@ public class JdbcDao implements Dao {
     @Override
     public List<WordObject> findWords(int part) {
         return jdbcTemplate.query(
-                "select id, typeWord, word, trans from words where typeWord = ?",
+                "select id, typeWord, word, trans from words where typeWord = ? order by word",
                 new WordRowMapper(),
                 part);
     }

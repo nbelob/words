@@ -63,7 +63,7 @@
         </tr>
         <tr>
             <td>
-                <a href="<c:url value="/" />">Назад</a>
+                <a href="<c:url value="/" />">В начало</a>
             </td>
         </tr>
     </table>

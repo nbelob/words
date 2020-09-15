@@ -42,9 +42,11 @@ public class WordsController {
     }
 
     @RequestMapping(value = "/add", method = POST)
-    public String addWord(@RequestParam(name = "part") int part) {
+    public String addWord(@RequestParam(name = "part") int part, Model model) {
         System.out.println(part);
-        return "addWord";
+        EditForm editForm = new EditForm(part, "", "");
+        model.addAttribute(editForm);
+        return "editWord";
     }
 
     @RequestMapping(value = "/edit", method = POST)
