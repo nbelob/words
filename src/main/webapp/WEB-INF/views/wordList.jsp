@@ -33,6 +33,7 @@
                             <td>
                                 <sf:form method="POST" action="/del">
                                     <input type="hidden" name="id" value="${wordObject.id}">
+                                    <input type="hidden" name="typeWord" value="${wordObject.typeWord}">
                                     <input type="image" name="del" src="<c:url value="/png/remove.png" />" height="20" title="Удалить">
                                 </sf:form>
                             </td>

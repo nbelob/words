@@ -67,8 +67,8 @@ public class WordsController {
     }
 
     @RequestMapping(value = "/del", method = POST)
-    public String delWord(@RequestParam(name = "id") int id) {
-        System.out.println(id);
-        return "delWord";
+    public String delWord(@RequestParam(name = "id") int id, @RequestParam(name = "typeWord") int typeWord) {
+        dao.delWord(id);
+        return "redirect:/list/?part=" + String.valueOf(typeWord);
     }
 }
