@@ -43,7 +43,7 @@ public class WordsController {
 
     @RequestMapping(value = "/add", method = POST, params = "add")
     public String addWord(@RequestParam(name = "part") int part, Model model) {
-        EditForm editForm = new EditForm(part, "", "");
+        EditForm editForm = new EditForm(0, part, "", "");
         model.addAttribute(editForm);
         return "editWord";
     }
@@ -60,10 +60,24 @@ public class WordsController {
         }
     }
 
-    @RequestMapping(value = "/edit", method = POST)
-    public String editWord(@RequestParam(name = "id") int id) {
-        System.out.println(id);
+    @RequestMapping(value = "/edit", method = POST, params = "edit")
+    public String editWord(@RequestParam(name = "id") int id, Model model) {
+        WordObject wordObject = dao.findWordById(id);
+        EditForm editForm = new EditForm(wordObject.getId(), wordObject.getTypeWord(), wordObject.getWord(), wordObject.getTrans());
+        model.addAttribute(editForm);
         return "editWord";
+    }
+
+    @RequestMapping(value = "/edit", method = POST, params = "ok")
+    public String editionWord(Model model, EditForm editForm) {
+        if (editForm.getWord().isBlank() || editForm.getWord().isEmpty() ||
+                editForm.getTrans().isBlank() || editForm.getTrans().isEmpty()) {
+            model.addAttribute(editForm);
+            return "editWord";
+        } else {
+            dao.updateWord(editForm.getId(), editForm.getWord(), editForm.getTrans());
+            return "redirect:/list/?part=" + String.valueOf(editForm.getTypeWord());
+        }
     }
 
     @RequestMapping(value = "/del", method = POST)

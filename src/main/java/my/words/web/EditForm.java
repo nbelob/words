@@ -1,14 +1,24 @@
 package my.words.web;
 
 public class EditForm {
+    private int id;
     private int typeWord;
     private String word;
     private String trans;
 
-    public EditForm(int typeWord, String word, String trans) {
+    public EditForm (int id, int typeWord, String word, String trans) {
+        this.id = id;
         this.typeWord = typeWord;
         this.word = word;
         this.trans = trans;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getTypeWord() {

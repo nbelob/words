@@ -25,6 +25,7 @@
                 <td>
                     <input type="text" name="trans" value=${editForm.trans}>
                     <input type="hidden" name="typeWord" value=${editForm.typeWord}>
+                    <input type="hidden" name="id" value=${editForm.id}>
                 </td>
             </tr>
         </table>

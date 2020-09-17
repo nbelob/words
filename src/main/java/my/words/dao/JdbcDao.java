@@ -33,5 +33,18 @@ public class JdbcDao implements Dao {
     public void delWord(int id) {
         jdbcTemplate.update("delete from words where id = ?", id);
     }
+
+    @Override
+    public WordObject findWordById(int id) {
+        return jdbcTemplate.queryForObject(
+                "select id, typeWord, word, trans from words where id = ?",
+                new WordRowMapper(),
+                id);
+    }
+
+    @Override
+    public void updateWord(int id, String word, String trans) {
+        jdbcTemplate.update("update words set word = ?, trans = ? where id = ?", word, trans, id);
+    }
 }
 
